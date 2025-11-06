@@ -49,8 +49,11 @@ class Review {
       LIMIT ? OFFSET ?
     `).all(productId, limit, offset);
 
+    // Ensure reviews is always an array
+    const reviewsArray = Array.isArray(reviews) ? reviews : [];
+
     return {
-      reviews: reviews.map(r => ({
+      reviews: reviewsArray.filter(r => r !== null).map(r => ({
         ...r,
         author: {
           name: r.author_name,

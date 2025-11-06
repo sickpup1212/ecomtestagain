@@ -284,7 +284,8 @@ class Product {
       isFeatured: !!product.is_featured,
       metadata: {
         createdAt: product.created_at,
-        updatedAt: product.updated_at
+        updatedAt: product.updated_at,
+        isActive: !!product.is_active
       }
     };
   }
